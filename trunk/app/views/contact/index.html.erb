@@ -1,0 +1,26 @@
+<h3>Contact Form</h3>
+
+<% form_tag(:action => 'send_message', :html => {:id => 'contactform'}) do %>
+  <%= error_messages_for :contact %>
+  <p>Send me a message</p>
+
+  <p>
+    <%= label :contact, :subject %><br />
+    <%= text_field :contact, :subject, :value => 'Message Subject', :tabindex => '1' %>
+  </p>
+  <p>
+    <%= label :contact, :subject %><br />
+    <%= text_field :contact, :author, :value => 'Your Name', :tabindex => '2' %>
+  </p>
+  <p>
+    <%= label :contact, :author_email %><br />
+    <%= text_field :contact, :author_email, :value => 'Your Email', :tabindex => '3' %>
+  </p>
+  <p>
+    <%= label :contact, :message %><br />
+    <%= text_area :contact, :message, :rows => '10', :cols => '20', :tabindex => '4' %>
+  </p>
+  <p class="no-border">
+    <%= submit_tag 'Submit', :class => 'button', :tabindex => '5' %>
+  </p>
+<% end %>

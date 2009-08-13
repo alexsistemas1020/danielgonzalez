@@ -1,0 +1,20 @@
+<h2><%= link_to('Welcome', '/') %></h2>
+
+<p>
+  Hello. Welcome to my personal website. This is where potential and established 
+  clients can <%= link_to('contact me', '/contact') %> and anybody can access my
+  <%= link_to('portfolio', '/') %>, leave any comments on my <%= link_to('blog', posts_path) %>,
+  and use other features I'll incorporate in time.
+</p>
+
+<p>
+  This website's desing is a free, W3C-compliant, CSS-based template
+  by <a href="http://www.styleshout.com/">www.styleshout.com</a>. This work is
+  distributed under the <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5  License</a>.
+  For more free CSS designs, you can visit <a href="http://www.styleshout.com/">www.styleshout.com</a> to see
+  other works.
+</p>
+
+<p class="postmeta">
+  <span class="date"><%= Time.now.to_s(:long_ordinal) %></span>
+</p>

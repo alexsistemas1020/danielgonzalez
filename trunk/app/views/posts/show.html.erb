@@ -1,0 +1,35 @@
+<h2><%=h @post.title %></h2>
+
+<p class="post-info">Filed under <%= link_and_join(@post.tags, ', ') %></p>
+
+<div class="post-body">
+  <%= simple_format(h(@post.body)) %>
+</div>
+
+<p class="postmeta">
+  <%= link_to(pluralize(@post.comments_count, 'Comment'), '/comments', :class => 'comments') %> |
+  <span class="date"><%= @post.created_at.to_s(:long_ordinal) %></span> |
+  <%= link_to 'Edit', edit_post_path(@post), :class => 'edit' %> |
+  <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'edit' %>
+</p>
+
+<h3 id="comments"><%= pluralize(@post.comments_count, 'Response') %></h3>
+
+<ol class="commentlist">
+  <% @post.comments.each do |comment| %>
+    <li class="<%= cycle('alt', '') %>" id="comment-<%= comment.id %>">
+      <cite>
+        <img alt="" src="/images/gravatar.jpg" class="avatar" height="40" width="40" />
+        <%= link_to(comment.author, '/') %> Says: <br />
+        <span class="comment-data">
+          <%= link_to(comment.created_at.to_s(:long_ordinal), '/') %>
+        </span>
+      </cite>
+      <div class="comment-text">
+        <%= simple_format(h(comment.content)) %>
+      </div>
+    </li>
+  <% end %>
+</ol>
+
+<%= render :partial => 'comment_form', :object => @post %>
