@@ -5,15 +5,15 @@
 
   <p>
     <%= label :comment, :author %><br />
-    <%= text_field :comment, :author, :value => 'Your Name', :tabindex => '1' %>
+    <%= text_field :comment, :author, :value => 'Your Name', :onfocus => "clickclear(this, 'Your Name')", :onblur => "clickrecall(this, 'Your Name')", :tabindex => '1' %>
   </p>
   <p>
     <%= label :comment, :author_email %><br />
-    <%= text_field :comment, :author_email, :value => 'Your Email', :tabindex => '2' %>
+    <%= text_field :comment, :author_email, :value => 'Your Email', :onfocus => "clickclear(this, 'Your Email')", :onblur => "clickrecall(this, 'Your Email')", :tabindex => '2' %>
   </p>
   <p>
     <%= label :comment, :content %><br />
-    <%= text_area :comment, :content, :rows => '10', :cols => '20', :tabindex => '3' %>
+    <%= text_area :comment, :content, :value => 'Your Message', :onfocus => "clickclear(this, 'Your Message')", :onblur => "clickrecall(this, 'Your Message')", :rows => '10', :cols => '20', :tabindex => '3' %>
   </p>
   <p class="no-border">
     <%= submit_tag 'Submit', :class => 'button', :tabindex => '4' %>
