@@ -1,0 +1,20 @@
+<% @posts.each do |post| %>
+
+  <h2><%= link_to(h(post.title), post) %></h2>
+
+  <p class="post-info">Filed under <%= link_and_join(post.tags, ', ') %></p>
+
+  <div class="post-body">
+    <%= truncate(simple_format(h(post.body)), :length => 255) %>
+  </div>
+
+  <p class="postmeta">
+    <%= link_to('Read more', post) %> |
+    <%= link_to(pluralize(post.comments_count, 'Comment'), '/comments') %> |
+    <span class="date"><%= post.created_at.to_s(:long_ordinal) %></span> |
+    <%= link_to 'Edit', edit_post_path(post), :class => 'edit' %> |
+    <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'edit' %>
+  </p>
+<% end %>
+
+<div class="clear">&nbsp;</div>

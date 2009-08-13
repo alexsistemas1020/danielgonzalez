@@ -1,0 +1,21 @@
+<h3 id="respond">Add a Comment</h3>
+
+<% form_tag(:action => 'add_comment', :id => @post.id) do %>
+  <%= error_messages_for :comment %>
+
+  <p>
+    <%= label :comment, :author %><br />
+    <%= text_field :comment, :author, :value => 'Your Name', :tabindex => '1' %>
+  </p>
+  <p>
+    <%= label :comment, :author_email %><br />
+    <%= text_field :comment, :author_email, :value => 'Your Email', :tabindex => '2' %>
+  </p>
+  <p>
+    <%= label :comment, :content %><br />
+    <%= text_area :comment, :content, :rows => '10', :cols => '20', :tabindex => '3' %>
+  </p>
+  <p class="no-border">
+    <%= submit_tag 'Submit', :class => 'button', :tabindex => '4' %>
+  </p>
+<% end %>
