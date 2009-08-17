@@ -21,10 +21,18 @@
         <!-- navigation -->
         <div id="nav">
           <ul>
-            <li <%= 'id="current"' if controller.controller_name == 'home' %>><%= link_to('Home', '/') %></li>
-            <li <%= 'id="current"' if controller.controller_name == 'posts' %>><%= link_to('Blog', posts_path) %></li>
-            <li <%= 'id="current"' if controller.controller_name == 'postfolio' %>><%= link_to('Portfolio', '/') %></li>
-            <li <%= 'id="current"' if controller.controller_name == 'contacts' %>><%= link_to('Contact', new_contacts_path) %></li>
+            <li <%= 'id="current"' if controller.controller_name == 'home' %>>
+              <%= link_to('Home', '/') %>
+            </li>
+            <li <%= 'id="current"' if controller.controller_name == 'posts' %>>
+              <%= link_to('Blog', posts_path) %>
+            </li>
+            <li <%= 'id="current"' if controller.controller_name == 'postfolio' %>>
+              <%= link_to('Portfolio', '/') %>
+            </li>
+            <li <%= 'id="current"' if controller.controller_name == 'contacts' %>>
+              <%= link_to('Contact', new_contacts_path) %>
+            </li>
           </ul>
         </div>
 
