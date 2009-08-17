@@ -6,6 +6,7 @@ class ContactMailer < ActionMailer::Base
     @from        = "#{contact.author} <#{contact.author_email}>"
     @subject     = contact.subject
     @sent_on     = Time.now
-    @body[:contact] = contact
+    @body[:comment] = contact
+    template 'comment_notification'
   end
 end

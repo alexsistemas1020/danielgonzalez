@@ -1,0 +1,16 @@
+<cite>
+  Hello <%= mail_to(@comment.author_email, @comment.author, :encode => 'hex') %>.
+  I received a comment from you on <span class="comment-data">
+    <%= @comment.created_at.to_s(:short_ordinal) %>
+  </span>.
+</cite>
+
+<div class="comment-text">
+  Your comment was:<br />
+  <%= simple_format(h(@comment.content)) %>
+</div>
+
+<p>
+  It will be reviewed for approval soon, so stay tuned for confimation.<br />
+  Thank you very much for visiting my website!
+</p>

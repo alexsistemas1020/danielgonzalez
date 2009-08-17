@@ -1,3 +1,9 @@
-Someone posted a comment:
-
-<%= truncate(@object.content, :length => 80, :omission => '...') %>
+<cite>
+  <%= mail_to(@comment.author_email, @comment.author, :encode => 'hex') %> says:<br />
+  <span class="comment-data">
+    <%= @comment.created_at.to_s(:short_ordinal) %>
+  </span>
+</cite>
+<div class="comment-text">
+  <%= simple_format(h(@comment.content)) %>
+</div>

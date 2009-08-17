@@ -1,5 +1,4 @@
 <% @posts.each do |post| %>
-
   <h2><%= link_to(h(post.title), post) %></h2>
 
   <p class="post-info">Filed under <%= link_and_join(post.tags, ', ') %></p>
