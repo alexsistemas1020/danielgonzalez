@@ -24,7 +24,7 @@
             <li <%= 'id="current"' if controller.controller_name == 'home' %>><%= link_to('Home', '/') %></li>
             <li <%= 'id="current"' if controller.controller_name == 'posts' %>><%= link_to('Blog', posts_path) %></li>
             <li <%= 'id="current"' if controller.controller_name == 'postfolio' %>><%= link_to('Portfolio', '/') %></li>
-            <li <%= 'id="current"' if controller.controller_name == 'contact' %>><%= link_to('Contact', :controller => 'contact') %></li>
+            <li <%= 'id="current"' if controller.controller_name == 'contacts' %>><%= link_to('Contact', new_contacts_path) %></li>
           </ul>
         </div>
 
@@ -33,7 +33,7 @@
         <form id="quick-search" action="index.html" method="get" >
           <p>
             <label for="qsearch">Search:</label>
-            <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+            <input class="tbox" id="qsearch" type="text" name="qsearch" onblur="this.value=(this.value=='Search...') ? '' : 'Search...';" onfocus="this.value=(this.value=='') ? 'Search...' : '';" value="Search..." title="Start typing and hit ENTER" />
             <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="/images/search.gif" />
           </p>
         </form>
@@ -52,19 +52,7 @@
 
           <div class="grid_4 alpha">
 
-            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-              Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-              posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum
-              odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra
-              condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna.
-              In tristique orci porttitor ipsum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-              Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-              posuere nunc justo tempus leo.
-            </p>
-
-            <p><a class="more-link" href="index.html">continue reading</a></p>
+            <%= render :partial => 'shared/experience' %>
 
           </div>
 
@@ -100,7 +88,7 @@
                 <li><%= link_to('Home', '/') %></li>
                 <li><%= link_to('Blog', posts_path) %></li>
                 <li><%= link_to('Portfolio', '/') %></li>
-                <li><%= link_to('Contact', :controller => 'contact') %></li>
+                <li><%= link_to('Contact', new_contacts_path) %></li>
                 <li><a href="http://www.styleshout.com/">More Free Templates</a></li>
                 <li><a href="http://www.4templates.com/?aff=ealigam">Premium Templates</a></li>
               </ul>
@@ -130,20 +118,11 @@
             </div>
 
             <h3>Wise Words</h3>
-            <p>
-              &quot;Beauty of style and harmony and grace and good rhythm
-              depends on simplicity.&quot;
-            </p>
-
-            <p class="align-right"> - Plato</p>
-
-            <h3>Support Styleshout</h3>
-            <p>
-              If you are interested in supporting my work and would like to contribute, you are
-              welcome to make a small donation through the
-              <a href="http://www.styleshout.com/">donate link</a> on my website - it will
-              be a great help and will surely be appreciated.
-            </p>
+            <blockquote>
+              <p>Beauty of style and harmony and grace and good rhythm
+                depends on simplicity.</p>
+              <p class="align-right"> - Plato</p>
+            </blockquote>
 
           </div>
 
@@ -162,12 +141,12 @@
 
         <div class="grid_8">
 
-          <h3>Resource Links</h3>
+          <h3>Support Styleshout</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-            Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-            posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum
-            odio, ac blandit ante orci ut diam. <a href="index.html">Read more...</a>
+            If you are interested in supporting <%= link_to "styleshout.com", 'http://www.styleshout.com/' %>'s
+            work and would like to contribute, you are welcome to make a small donation
+            through the donate link on the <%= link_to "site", 'http://www.styleshout.com/' %>
+            - it will be a great help and will surely be appreciated.
           </p>
 
           <ul class="footer-list">
@@ -187,18 +166,18 @@
 
           <h3>Image Gallery </h3>
           <p class="thumbs">
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
-            <a href="index.html"><img src="/images/thumb.jpg" width="40" height="40" alt="thumbnail" /></a>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
           </p>
 
           <h3>About</h3>
@@ -216,17 +195,14 @@
           <div id="profile" style="display:none">
             <h3>Profile & Overall Experience</h3>
             <p>
-              Experienced with Linux and Windows environments and virtualization tools,
-              managing production web infrastructure (Linux, Apache, MySQL, Oracle,
-              PHP, Rails). Capacity to write scripts for systems automation. Basic
-              knowledge of TCP/IP networking, load balancers, IDSs, and firewalls.
-              Experience working with system and network monitoring tools: syslogd,
-              firestarter/iptables, Ettercap, and Wireshark. Experience with MySQL,
-              Oracle, Informix and JavaDB. General working knowledge of PL/SQL. Excellent
-              communication, organization, and teamwork skills. Dependable with a great
-              work ethic, demonstrated initiative, ownership of issues, and exceptional
-              attitude. Highly flexible, adaptable, and able to deal with uncertainty
-              in a start-up company atmosphere. <%= link_to_function 'Read less...', "$('profile').fade();" %>
+              Linux and Windows environments, virtualization tools, managing production web
+              infrastructure (<i>Apache</i>, <i>MySQL</i>, <i>Oracle</i>, <i>PHP</i>, <i>Ruby on Rails</i>). Capacity to write scripts
+              for systems automation. Basic knowledge of TCP/IP networking, load balancers,
+              IDSs, and firewalls. Experience working with system and network monitoring tools:
+              <i>Syslogd</i>, <i>Firestarter/iptables</i>, <i>Ettercap</i>, <i>Wireshark</i>,
+              and so on. Experience with <i>MySQL</i> and <i>Oracle</i> database tools for design,
+              development and administration. General working knowledge of <i>PL/SQL</i>. Highly
+              flexible, adaptable, and able to deal with uncertainty. <%= link_to_function 'Read less...', "$('profile').fade();" %>
             </p>
           </div>
 

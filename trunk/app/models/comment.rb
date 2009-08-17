@@ -3,4 +3,8 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :content, :author, :author_email
   validates_length_of :content, :maximum => 1000
+  validates_format_of :author_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_exclusion_of :author, :in => 'Your Name...'
+  validates_exclusion_of :author_email, :in => 'Your Email...'
+  validates_exclusion_of :content, :in => 'Your Message...'
 end

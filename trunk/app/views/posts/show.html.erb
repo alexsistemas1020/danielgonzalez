@@ -7,22 +7,25 @@
 </div>
 
 <p class="postmeta">
-  <%= link_to(pluralize(@post.comments_count, 'Comment'), '/comments', :class => 'comments') %> |
-  <span class="date"><%= @post.created_at.to_s(:long_ordinal) %></span> |
+  <%= link_to(pluralize(@post.comments_count, 'Comment'), '#comments', :class => 'comments') %> |
+  <span class="date"><%= @post.created_at.to_s(:short_ordinal) %></span> |
+  <%= link_to 'Add a comment', '#add-comment' %> |
   <%= link_to 'Edit', edit_post_path(@post), :class => 'edit' %> |
   <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'edit' %>
 </p>
 
-<h3 id="comments"><%= pluralize(@post.comments_count, 'Response') %></h3>
+<a name="comments"></a><h3 id="comments"><%= pluralize(@post.comments_count, 'Response') %></h3>
 
 <ol class="commentlist">
   <% @post.comments.each do |comment| %>
     <li class="<%= cycle('alt', '') %>" id="comment-<%= comment.id %>">
       <cite>
         <img alt="" src="/images/gravatar.jpg" class="avatar" height="40" width="40" />
-        <%= link_to(comment.author, '/') %> Says: <br />
+        <%= link_to_unless(comment.author_url.nil?, comment.author, comment.author_url) do
+          comment.author
+        end %> says:<br />
         <span class="comment-data">
-          <%= link_to(comment.created_at.to_s(:long_ordinal), '/') %>
+          <%= link_to(comment.created_at.to_s(:short_ordinal), '/') %>
         </span>
       </cite>
       <div class="comment-text">

@@ -1,18 +1,18 @@
 class PostsController < ApplicationController
+
+  
   def add_comment
 		@comment = Comment.new(params[:comment])
 		@post = Post.find(params[:id])
 		@comment.post = @post
 
 		if @comment.save
-      begin
-        CommentMailer.deliver_comment_notification(@comment)
-      rescue Exception => e
-        flash[:notice] += e.to_s
-      end
 			flash[:notice] = 'Your comment was submitted successfully.'
+      redirect_to @post
+    else
+      flash[:notice] = 'Your comment could not be submitted.'
+      redirect_to @post
 		end
-    redirect_to(:action => 'index')
   end
 
   # GET /posts
