@@ -17,13 +17,11 @@
 <a name="comments"></a><h3 id="comments"><%= pluralize(@post.comments_count, 'Response') %></h3>
 
 <ol class="commentlist">
-  <% @post.comments.each do |comment| %>
+  <% @post.approved_comments.each do |comment| %>
     <li class="<%= cycle('alt', '') %>" id="comment-<%= comment.id %>">
       <cite>
         <img alt="" src="/images/gravatar.jpg" class="avatar" height="40" width="40" />
-        <%= link_to_unless(comment.author_url.nil?, comment.author, comment.author_url) do
-          comment.author
-        end %> says:<br />
+        <%= mail_to(comment.author_email, comment.author, :encode => 'hex') %> says:<br />
         <span class="comment-data">
           <%= link_to(comment.created_at.to_s(:short_ordinal), '/') %>
         </span>

@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :post, :counter_cache => true
+  belongs_to :post, :counter_cache => true, :conditions => ['status = ?', 'approved']
 
   validates_presence_of :content, :author, :author_email
   validates_length_of :content, :maximum => 1000
@@ -8,4 +8,5 @@ class Comment < ActiveRecord::Base
   validates_exclusion_of :author, :in => 'Your Name...'
   validates_exclusion_of :author_email, :in => 'Your Email...'
   validates_exclusion_of :content, :in => 'Your Message...'
+  validates_inclusion_of :status, :in => %w(new approved spam)
 end
