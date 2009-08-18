@@ -7,14 +7,14 @@
 </div>
 
 <p class="postmeta">
-  <%= link_to(pluralize(@post.comments_count, 'Comment'), '#comments', :class => 'comments') %> |
+  <%= link_to(pluralize(@post.approved_comments.size, 'Comment'), '#comments', :class => 'comments') %> |
   <span class="date"><%= @post.created_at.to_s(:short_ordinal) %></span> |
   <%= link_to 'Add a comment', '#add-comment' %> |
   <%= link_to 'Edit', edit_post_path(@post), :class => 'edit' %> |
   <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'edit' %>
 </p>
 
-<a name="comments"></a><h3 id="comments"><%= pluralize(@post.comments_count, 'Response') %></h3>
+<a name="comments"></a><h3 id="comments"><%= pluralize(@post.approved_comments.size, 'Response') %></h3>
 
 <ol class="commentlist">
   <% @post.approved_comments.each do |comment| %>
@@ -23,7 +23,7 @@
         <img alt="" src="/images/gravatar.jpg" class="avatar" height="40" width="40" />
         <%= mail_to(comment.author_email, comment.author, :encode => 'hex') %> says:<br />
         <span class="comment-data">
-          <%= link_to(comment.created_at.to_s(:short_ordinal), '/') %>
+          <%= comment.created_at.to_s(:short_ordinal) %>
         </span>
       </cite>
       <div class="comment-text">
@@ -33,4 +33,28 @@
   <% end %>
 </ol>
 
-<%= render :partial => 'comment_form', :object => @post %>
+<a name="add-comment"></a><h3 id="respond">Add a Comment</h3>
+
+<% form_tag(:action => 'add_comment', :id => @post.id) do %>
+  <%= error_messages_for 'comment' %>
+
+  <p>
+    <%= label :comment, :author %> (required)<br />
+    <%= text_field :comment, :author, :value => 'Your Name...', :onfocus => "this.value=(this.value=='Your Name...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Name...' : this.value;", :tabindex => '1' %>
+  </p>
+  <p>
+    <%= label :comment, :author_email %> (required)<br />
+    <%= text_field :comment, :author_email, :value => 'Your Email...', :onfocus => "this.value=(this.value=='Your Email...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Email...' : this.value;", :tabindex => '2' %>
+  </p>
+  <p>
+    <%= label :comment, :author_url %><br />
+    <%= text_field :comment, :author_url, :value => 'Your Website...', :onfocus => "this.value=(this.value=='Your Website...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Website...' : this.value;", :tabindex => '3' %>
+  </p>
+  <p>
+    <%= label :comment, :content %> (required)<br />
+    <%= text_area :comment, :content, :value => 'Your Message...', :onfocus => "this.value=(this.value=='Your Message...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Message...' : this.value;", :size => '20x10', :tabindex => '4' %>
+  </p>
+  <p class="no-border">
+    <%= submit_tag 'Submit', :class => 'button', :tabindex => '5' %>
+  </p>
+<% end %>
