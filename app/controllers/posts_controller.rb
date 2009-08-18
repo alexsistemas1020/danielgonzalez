@@ -6,13 +6,12 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comment.post = @post
 
-		if @comment.save
-			flash[:notice] = 'Your comment was submitted successfully.'
+    if @comment.save
+      flash[:notice] = 'Your comment was submitted successfully.'
       redirect_to @post
     else
-      flash[:notice] = 'Your comment could not be submitted.'
-      redirect_to @post
-		end
+      render :action => 'show'
+    end
   end
 
   # GET /posts
