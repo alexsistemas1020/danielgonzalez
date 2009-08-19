@@ -9,7 +9,7 @@
 
   <p class="postmeta">
     <%= link_to('Read more', post) %> |
-    <%= link_to(pluralize(post.comments_count, 'Comment'), post_path(post, :anchor => 'comments')) %> |
+    <%= link_to(pluralize(post.approved_comments.size, 'Comment'), post_path(post, :anchor => 'comments')) %> |
     <span class="date"><%= post.created_at.to_s(:short_ordinal) %></span> |
     <%= link_to 'Add a comment', post_path(post, :anchor => 'add-comment') %> |
     <%= link_to 'Edit', edit_post_path(post), :class => 'edit' %> |
