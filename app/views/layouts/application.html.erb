@@ -31,7 +31,7 @@
               <%= link_to('Portfolio', '/') %>
             </li>
             <li <%= 'id="current"' if controller.controller_name == 'contacts' %>>
-              <%= link_to('Contact', contact_path) %>
+              <%= link_to('Contact', new_contact_path) %>
             </li>
           </ul>
         </div>
@@ -42,7 +42,7 @@
           <div>
             <input type="hidden" name="cx" value="000220205247216395737:9z_0-tsdijw" />
             <input type="hidden" name="ie" value="UTF-8" />
-            <input class="tbox" id="qsearch" type="text" name="q" onblur="this.value=(this.value=='Search...') ? '' : 'Search...';" onfocus="this.value=(this.value=='') ? 'Search...' : '';" value="Search..." title="Start typing and hit ENTER" />
+            <input class="tbox" id="qsearch" type="text" name="q" />
             <input class="btn" alt="Search" type="image" name="sa" title="Search" src="/images/search.gif" />
           </div>
         </form>
@@ -75,7 +75,7 @@
                 <li><%= link_to('Home', '/') %></li>
                 <li><%= link_to('Blog', posts_path) %></li>
                 <li><%= link_to('Portfolio', '/') %></li>
-                <li><%= link_to('Contact', contact_path) %></li>
+                <li><%= link_to('Contact', new_contact_path) %></li>
                 <li><a href="http://www.styleshout.com/">More Free Templates</a></li>
                 <li><a href="http://www.4templates.com/?aff=ealigam">Premium Templates</a></li>
               </ul>
@@ -219,5 +219,21 @@
     </div>
     <!-- footer ends here -->
 
+    <script type="text/javascript">
+      $('qsearch').style.border = "none";
+      $('qsearch').style.padding = "5px";
+      $('qsearch').style.color = "#bababa";
+      $('qsearch').style.background = "transparent";
+    </script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-6566238-2");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
   </body>
 </html>
