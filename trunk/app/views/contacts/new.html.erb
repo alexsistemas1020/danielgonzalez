@@ -1,6 +1,6 @@
 <h3>Contact Form</h3>
 
-<% form_for(@contact, :html => {:id => 'contactform'}) do |f| %>
+<% form_for(@contact, :url => {:action => 'create'}, :html => {:id => 'contactform'}) do |f| %>
   <p>Send me a message</p>
   <%= f.error_messages %>
 

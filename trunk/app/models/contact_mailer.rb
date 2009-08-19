@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  layout 'basic' # use basic_mailer.text.(html|plain).erb as the layout
+  layout 'basic_mailer' # use basic_mailer.text.(html|plain).erb as the layout
   
   def contact_notification(contact)
     @recipients  = "dangt85@gmail.com"
@@ -7,6 +7,6 @@ class ContactMailer < ActionMailer::Base
     @subject     = contact.subject
     @sent_on     = Time.now
     @body[:comment] = contact
-    template 'comment_notification'
+    template 'comment_mailer/comment_notification'
   end
 end
