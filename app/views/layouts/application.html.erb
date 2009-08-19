@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <%= stylesheet_link_tag 'screen' %>
     <%= javascript_include_tag :all %>
+    <%= auto_discovery_link_tag(:rss, {:controller => 'posts', :action=> 'index', :format => 'rss'}, {:title => 'RSS Feeds'}) %>
   </head>
   <body>
 
@@ -27,8 +28,8 @@
             <li <%= 'id="current"' if controller.controller_name == 'posts' %>>
               <%= link_to('Blog', posts_path) %>
             </li>
-            <li <%= 'id="current"' if controller.controller_name == 'postfolio' %>>
-              <%= link_to('Portfolio', '/') %>
+            <li <%= 'id="current"' if controller.controller_name == 'portfolio' %>>
+              <%= link_to('Portfolio', portfolio_path) %>
             </li>
             <li <%= 'id="current"' if controller.controller_name == 'contacts' %>>
               <%= link_to('Contact', new_contact_path) %>
@@ -76,8 +77,6 @@
                 <li><%= link_to('Blog', posts_path) %></li>
                 <li><%= link_to('Portfolio', '/') %></li>
                 <li><%= link_to('Contact', new_contact_path) %></li>
-                <li><a href="http://www.styleshout.com/">More Free Templates</a></li>
-                <li><a href="http://www.4templates.com/?aff=ealigam">Premium Templates</a></li>
               </ul>
             </div>
 
@@ -208,8 +207,7 @@
 
         <p class="bottom-right" >
           <%= link_to 'Home', '/' %> |
-          <%= link_to 'Sitemap', '/' %> |
-          <%= link_to 'RSS Feeds', '/' %> |
+          <%= link_to 'RSS Feeds', posts_path, :format => 'rss' %> |
           <%= link_to 'CSS', 'http://jigsaw.w3.org/css-validator/check/referer' %> |
           <%= link_to 'xHTML', 'http://validator.w3.org/check/referer' %>
         </p>

@@ -1,10 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :comments, :except => [:new, :create]
 
-  map.resources :posts
+  map.resources :posts, :only => [:index, :show]
   map.connect 'posts/tagged_with/:tag', :controller => 'posts'
 
   map.resource :contact, :only => [:new, :create]
+  map.resource :portfolio, :controller => 'portfolio', :only => [:index, :show]
   map.connect 'home', :controller => 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.
