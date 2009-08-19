@@ -21,7 +21,9 @@
     <li class="<%= cycle('alt', '') %>" id="comment-<%= comment.id %>">
       <cite>
         <img alt="" src="/images/gravatar.jpg" class="avatar" height="40" width="40" />
-        <%= mail_to(comment.author_email, comment.author, :encode => 'hex') %> says:<br />
+        <%= link_to_unless(comment.author_url.nil?, comment.author, comment.author_url) do
+          comment.author
+        end %> says:<br />
         <span class="comment-data">
           <%= comment.created_at.to_s(:short_ordinal) %>
         </span>

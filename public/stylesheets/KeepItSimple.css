@@ -239,7 +239,7 @@ input.button {
 }
 
 /* header quick search */
-#header form#quick-search {
+#header form#cse-search-box {
 	position: absolute;
 	top: 10px; right: 0;
 	padding: 0; margin: 0;
@@ -248,25 +248,25 @@ input.button {
 	background: #F5F4F3 url(../images/header-search.gif) no-repeat;	
 	z-index: 999999;
 }
-#header form#quick-search p {
+#header form#cse-search-box p {
 	margin: 0; padding: 0;		
 }
-#header form#quick-search input {
+#header form#cse-search-box input {
 	border: none;
 	background: transparent;
 	color: #bababa;
 	float: left;
 	margin: 0; padding: 5px;
 }
-#header form#quick-search .tbox {
+#header form#cse-search-box .tbox {
 	margin: 6px 0 0 5px; 
 	width: 216px;	
 	display: inline;		
 }
-#header #search form#quick-search .btn{
+#header #search form#cse-search-box .btn{
 	width: 25px; height: 25px;		
 }
-#header form#quick-search label {
+#header form#cse-search-box label {
 	display: none;
 }
 
