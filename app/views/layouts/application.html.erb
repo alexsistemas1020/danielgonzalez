@@ -75,7 +75,7 @@
               <ul>
                 <li><%= link_to('Home', '/') %></li>
                 <li><%= link_to('Blog', posts_path) %></li>
-                <li><%= link_to('Portfolio', '/') %></li>
+                <li><%= link_to('Portfolio', portfolio_path) %></li>
                 <li><%= link_to('Contact', new_contact_path) %></li>
               </ul>
             </div>
@@ -102,7 +102,7 @@
                 <li><a href="http://www.4templates.com/?aff=ealigam">4templates <br /><span>Low Cost Hi-Quality Templates</span></a></li>
                 <li><a href="http://store.templatemonster.com?aff=ealigam">TemplateMonster <br /><span>Delivering the Best Templates on the Net!</span></a></li>
                 <li><a href="http://tinyurl.com/3cgv2m">Text Link Ads <br /><span>Monetized your website</span></a></li>
-                <li><a href="http://www.fotolia.com/partner/114283">Fotolia <br /><span>Free stock images or from $1</span></a> </li>
+                <li><a href="http://www.fotolia.com/partner/114283">Fotolia <br /><span>Free stock images or from $1</span></a></li>
                 <li><a href="http://www.dreamhost.com/r.cgi?287326">Dreamhost <br /><span>Premium webhosting</span></a></li>
               </ul>
             </div>
@@ -124,6 +124,7 @@
 
           <h3>Direct Contact</h3>
           <p>
+            Ubication: Caracas - Venezuela
             Email: <%= mail_to('contact@danielgonzalez.com.ve') %><br />
             Cell-phone: +58 412 330 68 53
           </p>
@@ -207,7 +208,7 @@
 
         <p class="bottom-right" >
           <%= link_to 'Home', '/' %> |
-          <%= link_to 'RSS Feeds', posts_path, :format => 'rss' %> |
+          <%= link_to 'RSS Feeds', posts_path(:format => 'rss') %> |
           <%= link_to 'CSS', 'http://jigsaw.w3.org/css-validator/check/referer' %> |
           <%= link_to 'xHTML', 'http://validator.w3.org/check/referer' %>
         </p>

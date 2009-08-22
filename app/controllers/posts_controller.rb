@@ -28,8 +28,8 @@ class PostsController < ApplicationController
     end
 
     respond_to do |format|
-      format.rss  { render :layout => false } # index.rss.erb
       format.html # index.html.erb
+      format.rss  { render :layout => false } # index.rss.erb
       format.xml  { render :xml => @posts }
     end
   end
