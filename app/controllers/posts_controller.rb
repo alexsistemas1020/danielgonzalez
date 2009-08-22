@@ -9,7 +9,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'Your comment was submitted successfully.'
       redirect_to @post
     else
-      render :action => 'show'
+      render :action => 'show', :post => @post, :comment => @comment
     end
   end
 
@@ -21,14 +21,16 @@ class PostsController < ApplicationController
   # GET /posts/tagged_with/tag.rss
   def index
     @comment = Comment.new
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag], :on => :tags)
-    else
-      @posts = Post.all
-    end
-
+    
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do # index.html.erb
+        if params[:tag]
+          @posts = Post.tagged_with(params[:tag], :on => :tags, :order => 'created_at DESC')
+        else
+          @posts = Post.paginate(:page => params[:page], :per_page => 2, :order => 'created_at DESC')
+        end
+      end
+      @posts = Post.all(:order => 'created_at DESC')
       format.rss  { render :layout => false } # index.rss.erb
       format.xml  { render :xml => @posts }
     end

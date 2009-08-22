@@ -5,14 +5,16 @@
 
   <div class="post-body">
     <%= truncate(simple_format(h(post.body)), :length => 255) %>
+    <%= link_to('Read more', post) %>
   </div>
 
   <p class="postmeta">
-    <%= link_to('Read more', post) %> |
     <%= link_to(pluralize(post.approved_comments.size, 'Comment'), post_path(post, :anchor => 'comments')) %> |
     <span class="date"><%= post.created_at.to_s(:short_ordinal) %></span> |
     <%= link_to 'Add a comment', post_path(post, :anchor => 'add-comment') %>
   </p>
 <% end %>
+
+<%= will_paginate @posts %>
 
 <div class="clear">&nbsp;</div>
