@@ -9,23 +9,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090811214817) do
+ActiveRecord::Schema.define(:version => 20090822210424) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.text     "content"
+    t.string   "author_name"
+    t.string   "author_email"
+    t.string   "author_url"
+    t.string   "status",       :default => "new"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "author"
-    t.string   "author_email"
   end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count", :default => 0, :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "contact_email"
+    t.string   "url"
+    t.text     "description"
+    t.string   "content_type",  :limit => 100
+    t.string   "filename"
+    t.string   "path"
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|

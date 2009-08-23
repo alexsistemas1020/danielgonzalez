@@ -1,0 +1,28 @@
+<h2>Upload a new prject</h2>
+
+<%= error_messages_for :project %>
+
+<% form_for(@project, :url => {:action => 'create'}, :html => { :multipart => true }) do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %></p>
+  <p>
+  <p>
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email %></p>
+  <p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %></p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => '20x10' %>
+  </p>
+  <p>
+    <%= f.label :uploaded_data %><br />
+    <%= f.file_field :uploaded_data %>
+  </p>
+  <p>
+    <%= submit_tag 'Submit', :class => 'button' %>
+  </p>
+<% end %>
