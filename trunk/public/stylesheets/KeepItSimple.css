@@ -468,13 +468,7 @@ input.button {
 }
 
 /* postmeta */
-.post-body img:hover	{
-    border: 1px solid #D2D2D2;
-    background: #DDD;
-}
-.post-body a:hover { background-color: transparent; border: none }
-
-.postmeta {	
+.postmeta {
     padding: 5px; margin: 20px 15px 15px 10px;
     border: 1px solid #EBEBEB;
     background: #f8f8f8;
@@ -497,11 +491,14 @@ p.thumbs{ padding: 10px 0 0 10px; }
     background: #fafafa;
     border: 1px solid #ddd;
 }
-.thumbs img:hover	{
+.thumbs img:hover, .post-body img:hover {
     border: 1px solid #D2D2D2;
     background: #DDD;
 }
-.thumbs a:hover { background-color: transparent; border: none }
+.thumbs a:hover, .post-body a:hover {
+    background-color: transparent;
+    border: none;
+}
 
 /* comments list */
 ol.commentlist {
