@@ -1,5 +1,5 @@
 <cite>
-  Hello <%= mail_to(@comment.author_email, @comment.author, :encode => 'hex') %>.
+  Hello <%= mail_to(@comment.author_email, @comment.author_name, :encode => 'hex') %>.
   I received a comment from you on <span class="comment-data">
     <%= @comment.created_at.to_s(:short_ordinal) %>
   </span>.
