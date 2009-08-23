@@ -468,6 +468,12 @@ input.button {
 }
 
 /* postmeta */
+.post-body img:hover	{
+    border: 1px solid #D2D2D2;
+    background: #DDD;
+}
+.post-body a:hover { background-color: transparent; border: none }
+
 .postmeta {	
     padding: 5px; margin: 20px 15px 15px 10px;
     border: 1px solid #EBEBEB;

@@ -22,16 +22,16 @@
         <!-- navigation -->
         <div id="nav">
           <ul>
-            <li <%= 'id="current"' if controller.controller_name == 'home' %>>
+            <li<%= ' id="current"' if controller.controller_name == 'home' %>>
               <%= link_to('Home', '/') %>
             </li>
-            <li <%= 'id="current"' if controller.controller_name == 'posts' %>>
+            <li<%= ' id="current"' if controller.controller_name == 'posts' %>>
               <%= link_to('Blog', posts_path) %>
             </li>
-            <li <%= 'id="current"' if controller.controller_name == 'portfolio' %>>
+            <li<%= ' id="current"' if controller.controller_name == 'portfolio' %>>
               <%= link_to('Portfolio', portfolio_path) %>
             </li>
-            <li <%= 'id="current"' if controller.controller_name == 'contacts' %>>
+            <li<%= ' id="current"' if controller.controller_name == 'contacts' %>>
               <%= link_to('Contact', new_contact_path) %>
             </li>
           </ul>
@@ -48,7 +48,7 @@
           </div>
         </form>
 
-        <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=es"></script>
+        <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box"></script>
 
         <!-- header ends here -->
       </div></div>
@@ -181,7 +181,7 @@
             updates. <%= link_to_function 'Read more...', "$('profile').appear();" %>
           </p>
           <div id="profile" style="display:none">
-            <h3>Profile & Overall Experience</h3>
+            <h3>Profile &amp; Overall Experience</h3>
             <p>
               I have experience in Linux and Windows environments, virtualization
               tools, configuring production, development and testing web environments.
@@ -218,12 +218,12 @@
     </div>
     <!-- footer ends here -->
 
-    <script type="text/javascript">
-      $('qsearch').style.border = "none";
-      $('qsearch').style.padding = "5px";
-      $('qsearch').style.color = "#bababa";
-      $('qsearch').style.background = "transparent";
-    </script>
+    <%= javascript_tag "$('qsearch').style.border = 'none';
+$('qsearch').style.padding = '5px';
+$('qsearch').style.color = '#bababa';
+$('qsearch').style.background = 'transparent';
+$('qsearch').focus();
+$('qsearch').blur();" %>
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
