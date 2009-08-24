@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@comment.post = @post
 
-    if @comment.save
+    if verify_recaptcha(@comment) && @comment.save
       flash[:notice] = 'Your comment was submitted successfully.'
       redirect_to @post
     else

@@ -27,7 +27,5 @@ class PortfolioController < ApplicationController
     else
       render :action => 'new', :project => @project
     end
-  rescue ActiveRecord::RecordInvalid
-    render :action => 'new'
   end
 end
