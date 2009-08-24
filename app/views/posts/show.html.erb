@@ -35,25 +35,45 @@
 
 <a name="add-comment"></a><h3 id="respond">Add a Comment</h3>
 
-<% form_tag(:action => 'add_comment', :id => @post.id) do %>
-  <%= error_messages_for 'comment' %>
+<% form_for(:comment, @comment, :url => {:action => 'add_comment', :id => @post.id}) do |f| %>
+  <%= f.error_messages %>
 
   <p>
-    <%= label :comment, :author_name %> (required)<br />
-    <%= text_field :comment, :author_name, :value => 'Your Name...', :onfocus => "this.value=(this.value=='Your Name...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Name...' : this.value;", :tabindex => '1' %>
+    <%= f.label :author_name %> (required)<br />
+    <%= f.text_field :author_name,
+      :value => @comment.author_name || 'Your Name...',
+      :onfocus => "this.value=(this.value=='Your Name...') ? '' : this.value;",
+      :onblur => "this.value=(this.value=='') ? 'Your Name...' : this.value;",
+      :tabindex => '1' %>
   </p>
   <p>
-    <%= label :comment, :author_email %> (required)<br />
-    <%= text_field :comment, :author_email, :value => 'Your Email...', :onfocus => "this.value=(this.value=='Your Email...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Email...' : this.value;", :tabindex => '2' %>
+    <%= f.label :author_email %> (required)<br />
+    <%= f.text_field :author_email,
+      :value => @comment.author_email || 'Your Email...',
+      :onfocus => "this.value=(this.value=='Your Email...') ? '' : this.value;",
+      :onblur => "this.value=(this.value=='') ? 'Your Email...' : this.value;",
+      :tabindex => '2' %>
   </p>
   <p>
-    <%= label :comment, :author_url %><br />
-    <%= text_field :comment, :author_url, :value => 'Your Website...', :onfocus => "this.value=(this.value=='Your Website...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Website...' : this.value;", :tabindex => '3' %>
+    <%= f.label :author_url %><br />
+    <%= f.text_field :author_url,
+      :value => @comment.author_url || 'Your Website...',
+      :onfocus => "this.value=(this.value=='Your Website...') ? '' : this.value;",
+      :onblur => "this.value=(this.value=='') ? 'Your Website...' : this.value;",
+      :tabindex => '3' %>
   </p>
   <p>
-    <%= label :comment, :content %> (required)<br />
-    <%= text_area :comment, :content, :value => 'Your Message...', :onfocus => "this.value=(this.value=='Your Message...') ? '' : this.value;", :onblur => "this.value=(this.value=='') ? 'Your Message...' : this.value;", :size => '20x10', :tabindex => '4' %>
+    <%= f.label :content %> (required)<br />
+    <%= f.text_area :content,
+      :value => @comment.content || 'Your Message...',
+      :onfocus => "this.value=(this.value=='Your Message...') ? '' : this.value;",
+      :onblur => "this.value=(this.value=='') ? 'Your Message...' : this.value;",
+      :size => '20x10', :tabindex => '4' %>
   </p>
+  <div id="recaptcha" style="margin-top:10px" align="center">
+  <%# :theme => red, white, blackglass, clean, custom %>
+    <%= recaptcha_tags :display => {:theme => 'blackglass', :tabindex => '6'} %>
+  </div>
   <p class="no-border">
     <%= submit_tag 'Submit', :class => 'button', :tabindex => '5' %>
   </p>
