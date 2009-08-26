@@ -16,14 +16,14 @@
     <!-- header starts-->
     <div id="header-wrap"><div id="header" class="container_16">
 
-        <h1 id="logo-text"><%= link_to 'Daniel González', '/' %></h1>
+        <h1 id="logo-text"><%= link_to 'Daniel González', root_path %></h1>
         <p id="intro">Freelance web developer...</p>
 
         <!-- navigation -->
         <div id="nav">
           <ul>
             <li<%= ' id="current"' if controller.controller_name == 'home' %>>
-              <%= link_to('Home', '/') %>
+              <%= link_to('Home', root_path) %>
             </li>
             <li<%= ' id="current"' if controller.controller_name == 'posts' %>>
               <%= link_to('Blog', posts_path) %>
@@ -73,7 +73,7 @@
             <div class="sidemenu">
               <h3>Sidebar Menu</h3>
               <ul>
-                <li><%= link_to('Home', '/') %></li>
+                <li><%= link_to('Home', root_path) %></li>
                 <li><%= link_to('Blog', posts_path) %></li>
                 <li><%= link_to('Portfolio', portfolio_path) %></li>
                 <li><%= link_to('Contact', new_contact_path) %></li>
@@ -154,23 +154,23 @@
 
           <h3>Image Gallery </h3>
           <p class="thumbs">
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), '/') %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
           </p>
 
           <h3>About</h3>
           <p>
-            <span class="thumbs"><%= link_to(image_tag('coliseo.jpg', :class => 'float-left', :size => '40'), '/') %></span>
+            <span class="thumbs"><%= link_to(image_tag('coliseo.jpg', :class => 'float-left', :size => '40'), root_path) %></span>
             I'm a web developer based in Venezuela. I consider myself critical,
             reflexive and methodical on resolving various computer scenarios; innovative
             as seeking for new alternatives; honest and ethical professional perform;
@@ -207,7 +207,7 @@
         </p>
 
         <p class="bottom-right" >
-          <%= link_to 'Home', '/' %> |
+          <%= link_to 'Home', root_path %> |
           <%= link_to 'RSS Feeds', posts_path(:format => 'rss') %> |
           <%= link_to 'CSS', 'http://jigsaw.w3.org/css-validator/check/referer' %> |
           <%= link_to 'xHTML', 'http://validator.w3.org/check/referer' %>
@@ -219,11 +219,11 @@
     <!-- footer ends here -->
 
     <%= javascript_tag "$('qsearch').style.border = 'none';
-$('qsearch').style.padding = '5px';
-$('qsearch').style.color = '#bababa';
-$('qsearch').style.background = 'transparent';
-$('qsearch').focus();
-$('qsearch').blur();" %>
+      $('qsearch').style.padding = '5px';
+      $('qsearch').style.color = '#bababa';
+      $('qsearch').style.background = 'transparent';
+      $('qsearch').focus();
+      $('qsearch').blur();" %>
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

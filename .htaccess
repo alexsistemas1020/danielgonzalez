@@ -1,6 +1,0 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-
-  # Important rule to prevent exposure of subversion files
-  RewriteRule ^(.*/)?.svn/ - [F,L]
-</IfModule>
