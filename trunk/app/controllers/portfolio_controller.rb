@@ -11,21 +11,4 @@ class PortfolioController < ApplicationController
       format.xml  { render :xml => @projects }
     end
   end
-
-  # GET /portfolio/new
-  def new
-    @project = Project.new
-  end
-
-  # POST /portfolio/new
-  def create
-    @project = Project.new(params[:project])
-
-    if @project.save
-      flash[:notice] = 'Your project was submitted successfully.'
-      redirect_to portfolio_url
-    else
-      render :action => 'new', :project => @project
-    end
-  end
 end
