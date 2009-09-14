@@ -12,12 +12,12 @@
 ActiveRecord::Schema.define(:version => 20090822210424) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "post_id"
+    t.integer  "post_id",      :limit => 11
     t.text     "content"
     t.string   "author_name"
     t.string   "author_email"
     t.string   "author_url"
-    t.string   "status",       :default => "new"
+    t.string   "status",                     :default => "new"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,20 +35,16 @@ ActiveRecord::Schema.define(:version => 20090822210424) do
     t.string   "name"
     t.string   "contact_email"
     t.string   "url"
-    t.text     "description"
-    t.string   "content_type",  :limit => 100
     t.string   "filename"
-    t.string   "path"
-    t.integer  "width"
-    t.integer  "height"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.integer  "tagger_id"
+    t.integer  "tag_id",        :limit => 11
+    t.integer  "taggable_id",   :limit => 11
+    t.integer  "tagger_id",     :limit => 11
     t.string   "tagger_type"
     t.string   "taggable_type"
     t.string   "context"

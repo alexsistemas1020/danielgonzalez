@@ -2,10 +2,10 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: blog_development
+  database: dangt85_blogdev
   pool: 5
-  username: blog
-  password: cl4v3
+  username: dangt85_blog
+  password: /I6>%|ugJ?Wm
   host: localhost
 
 test:

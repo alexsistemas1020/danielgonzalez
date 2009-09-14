@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
-  has_attachment :storage => :file_system,
-    :max_size => 2.megabytes,
-    :content_type => :image,
-    :path_prefix => 'public/projects'
+  # has_attachment :storage => :file_system,
+  #   :max_size => 2.megabytes,
+  #   :content_type => :image,
+  #   :path_prefix => 'public/projects'
 
   # validates_as_attachment
   

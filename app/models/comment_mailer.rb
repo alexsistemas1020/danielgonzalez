@@ -1,6 +1,4 @@
-class CommentMailer < ActionMailer::Base
-  layout 'basic_mailer' # use basic_mailer.text.(html|plain).erb as the layout
-  
+class CommentMailer < ActionMailer::Base 
   def comment_notification(comment)
     @recipients  = "dangt85@gmail.com"
     @from        = "#{comment.author_name} <#{comment.author_email}>"

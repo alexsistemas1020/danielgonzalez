@@ -8,8 +8,8 @@ xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
     xml.description "Freelance web developer with open source technologies (Ruby on Rails, PHP and J2EE)"
     @posts.each do |post|
       xml.item do
-        xml.title(post.title)
-        xml.description(post.body)
+        xml.title(h(post.title))
+        xml.description(simple_format(h(post.body)))
         xml.pubDate(post.created_at.to_s(:rfc822))
         xml.guid(url_for(:action => "show", :id => post, :only_path => false))
         xml.link(url_for(:action => "show", :id => post, :only_path => false))

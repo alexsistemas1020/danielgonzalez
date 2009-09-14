@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Daniel González</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <%= stylesheet_link_tag 'KeepItSimple' %>
+  </head>
+  <body>
+    <cite>
+      <%= mail_to(@comment.author_email, @comment.author_name, :encode => 'hex') %> says:<br />
+      <span class="comment-data">
+        <%= @comment.created_at.to_s(:short_ordinal) %>
+      </span>
+    </cite>
+    <div class="comment-text">
+      <%= simple_format(h(@comment.content)) %>
+    </div>
+  </body>
+</html>

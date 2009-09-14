@@ -1,6 +1,4 @@
 class ContactMailer < ActionMailer::Base
-  layout 'basic_mailer' # use basic_mailer.text.(html|plain).erb as the layout
-  
   def contact_notification(contact)
     @recipients  = "dangt85@gmail.com"
     @from        = "#{contact.name} <#{contact.email}>"

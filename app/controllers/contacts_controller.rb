@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if verify_recaptcha(@contact) && @contact.save
         flash[:notice] = 'Message successfully sent.'
-        format.html { redirect_to(new_contact_url) }
+        format.html { redirect_to(contact_url) }
         format.xml  { render :xml => @contact, :status => :created, :location => @contact }
       else
         flash[:notice] = 'Your Message could not be sent.'
