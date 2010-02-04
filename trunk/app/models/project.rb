@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :description
   validates_format_of :contact_email,
     :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
-    :if => 'self.url != "Contact Email..."'
+    :if => 'self.contact_email != "Contact Email..."'
   validates_format_of :url,
     :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
     :if => 'self.url != "Project Website..."'
