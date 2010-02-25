@@ -1,29 +1,17 @@
 development:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: dangt85_blogdev
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: dangt85_blog
-  password: /I6>%|ugJ?Wm
-  host: localhost
+  timeout: 5000
 
 test:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: blog_test
+  adapter: sqlite3
+  database: db/test.sqlite3
   pool: 5
-  username: blog
-  password: cl4v3
-  host: localhost
+  timeout: 5000
 
 production:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: dangt85_blog
+  adapter: sqlite3
+  database: db/production.sqlite3
   pool: 5
-  username: dangt85_blog
-  password: /I6>%|ugJ?Wm
-  host: localhost
+  timeout: 5000

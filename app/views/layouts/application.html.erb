@@ -150,23 +150,23 @@
 
         <div class="grid_8">
 
-          <h3>Image Gallery </h3>
+          <h3>Things I use/like</h3>
           <p class="thumbs">
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
-            <%= link_to(image_tag('thumb.jpg', :size => '40x40', :alt => 'thumbnail'), root_path) %>
+            <%= link_to(image_tag('rails.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://rubyonrails.org') %>
+            <%= link_to(image_tag('java.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://java.sun.com') %>
+            <%= link_to(image_tag('php.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://php.net') %>
+            <%= link_to(image_tag('mysql.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.mysql.com') %>
+            <%= link_to(image_tag('oracle.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.oracle.com') %>
+            <%= link_to(image_tag('jquery.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://jquery.com') %>
+            <%= link_to(image_tag('w3c.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.w3.org') %>
+            <%= link_to(image_tag('firefox.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.firefox.com') %>
+            <%= link_to(image_tag('windows.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.microsoft.com/windows/') %>
+            <%= link_to(image_tag('linux.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.linux.com/') %>
+            <%= link_to(image_tag('mac.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://www.apple.com') %>
+            <%= link_to(image_tag('rfid.jpg', :size => '40x40', :alt => 'thumbnail'), 'http://rubyforge.org/projects/rfid4r/') %>
           </p>
 
-          <h3>About</h3>
+          <h3>About me</h3>
           <p>
             <span class="thumbs"><%= link_to(image_tag('coliseo.jpg', :class => 'float-left', :size => '40'), root_path) %></span>
             I'm a web developer based in Venezuela. I consider myself critical,
@@ -176,21 +176,12 @@
             leadership, in order to facilitate the use of information and communication
             technologies; formal, systematic and precise at developing tasks; dedicated
             to the critic knowledge of the technological advances and permanently
-            updates. <%= link_to_function 'Read more...', "$('profile').appear();" %>
+            updates. <%= link_to_remote "Read more...", :update => "profile",
+              :url => { :action => "reload" },
+              :complete => visual_effect(:toggle_appear, "profile", :duration => 0.5)
+          %>
           </p>
           <div id="profile" style="display:none">
-            <h3>Profile &amp; Overall Experience</h3>
-            <p>
-              I have experience in Linux and Windows environments, virtualization
-              tools, configuring production, development and testing web environments.
-              Capacity to write scripts for systems automation; basic knowledge
-              of TCP/IP networking, load balancers, IDSs, and firewalls; experience
-              working with system and network monitoring tools: <i>Syslogd</i>,
-              <i>Firestarter/iptables</i>, <i>Ettercap</i>, <i>Wireshark</i>, and
-              so on; experience with <i>MySQL</i> and <i>Oracle</i> database tools
-              for design, development and administration; general working knowledge
-              of <i>PL/SQL</i>. <%= link_to_function 'Read less...', "$('profile').fade();" %>
-            </p>
           </div>
 
         </div>
@@ -206,7 +197,7 @@
 
         <p class="bottom-right" >
           <%= link_to 'Home', root_path %> |
-          <%= link_to 'RSS Feeds', formatted_posts_path(:format => 'rss') %> |
+          <%= link_to 'RSS Feeds', posts_path(:format => 'rss') %> |
           <%= link_to 'CSS', 'http://jigsaw.w3.org/css-validator/check/referer' %> |
           <%= link_to 'xHTML', 'http://validator.w3.org/check/referer' %>
         </p>
@@ -217,11 +208,11 @@
     <!-- footer ends here -->
 
     <%= javascript_tag "$('qsearch').style.border = 'none';
-      $('qsearch').style.padding = '5px';
-      $('qsearch').style.color = '#bababa';
-      $('qsearch').style.background = 'transparent';
-      $('qsearch').focus();
-      $('qsearch').blur();" %>
+$('qsearch').style.padding = '5px';
+$('qsearch').style.color = '#bababa';
+$('qsearch').style.background = 'transparent';
+$('qsearch').focus();
+$('qsearch').blur();" %>
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

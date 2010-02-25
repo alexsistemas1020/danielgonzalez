@@ -4,7 +4,7 @@
   <p class="post-info">Filed under <%= link_and_join(post.tags, ', ') %></p>
 
   <div class="post-body">
-    <%= truncate(simple_format(h(post.body)), 255) %>
+    <%= truncate(simple_format(h(post.body)), :length => 255, :omission => "...") %>
     <p><%= link_to('Read more', post) %></p>
   </div>
 

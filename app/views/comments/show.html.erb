@@ -1,5 +1,5 @@
 <div class="comment">
-  <%= @comment.content %>
+  <%= simple_format(@comment.content) %>
 </div>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
