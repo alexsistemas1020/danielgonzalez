@@ -176,12 +176,21 @@
             leadership, in order to facilitate the use of information and communication
             technologies; formal, systematic and precise at developing tasks; dedicated
             to the critic knowledge of the technological advances and permanently
-            updates. <%= link_to_remote "Read more...", :update => "profile",
-              :url => { :action => "reload" },
-              :complete => visual_effect(:toggle_appear, "profile", :duration => 0.5)
-          %>
+            updates. <%= link_to_function 'Read more...', "$('profile').appear();" %>
           </p>
           <div id="profile" style="display:none">
+            <h3>Profile &amp; Overall Experience</h3>
+            <p>
+              I have experience in Linux and Windows environments, virtualization
+              tools, configuring production, development and testing web environments.
+              Capacity to write scripts for systems automation; basic knowledge
+              of TCP/IP networking, load balancers, IDSs, and firewalls; experience
+              working with system and network monitoring tools: <i>Syslogd</i>,
+              <i>Firestarter/iptables</i>, <i>Ettercap</i>, <i>Wireshark</i>, and
+              so on; experience with <i>MySQL</i> and <i>Oracle</i> database tools
+              for design, development and administration; general working knowledge
+              of <i>PL/SQL</i>. <%= link_to_function 'Read less...', "$('profile').fade();" %>
+            </p>
           </div>
 
         </div>
