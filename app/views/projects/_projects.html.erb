@@ -1,0 +1,26 @@
+<div class="pagination-links">
+  <%= will_paginate @projects, :params => {:action => 'index'}, :remote => { :update => "projects" } %>
+</div>
+
+<% @projects.each do |project| %>
+  <h2><%=h project.name %></h2>
+
+  <div class="post-body">
+    <p>
+      <%= link_to_unless(project.url.nil?,
+        image_tag(project.filename, :width => '400'), project.url) do
+        image_tag(project.filename, :width => '400')
+      end %>
+    </p>
+    <%= simple_format(project.description) %>
+  </div>
+
+  <p class="postmeta">
+    Contact: <%= mail_to(project.contact_email) %> |
+    <span class="date"><%= project.created_at.to_s(:short_ordinal) %></span>
+  </p>
+<% end %>
+
+<div class="pagination-links">
+  <%= will_paginate @projects, :params => {:action => 'index'}, :remote => { :update => "projects" } %>
+</div>

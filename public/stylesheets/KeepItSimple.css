@@ -554,4 +554,6 @@ ol.commentlist {
     content: ".";
 }
 
-
+.pagination-links {
+    text-align: center;
+}

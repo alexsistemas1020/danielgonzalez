@@ -41,5 +41,7 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
+WillPaginate::ViewHelpers.pagination_options[:renderer] = 'RemoteLinkRenderer'
+
 ENV['RECAPTCHA_PUBLIC_KEY']  = '6Lcu8wcAAAAAACLTgM9ZAWtY-P8W8nsRPwits88s'
 ENV['RECAPTCHA_PRIVATE_KEY'] = '6Lcu8wcAAAAAAJcIz5FsvfzQvK7hUd6sjC3xStnf'
