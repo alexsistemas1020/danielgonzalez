@@ -358,7 +358,8 @@ input.button {
     color: #7BA857;
     padding-left: 0;
 }
-.sidemenu ul li a span {
+.sidemenu ul li a span,
+.sidemenu ul li span.date {
     color: #9F9F9F;
     font-family: Georgia, 'Times New Roman', Times, Serif;
     font-style: normal;
