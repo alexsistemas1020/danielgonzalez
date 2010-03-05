@@ -7,6 +7,9 @@
     <title>Daniel González</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="keywords" content="daniel gonzalez, venezuela, web developer, freelancer, j2ee, ruby on rails, ruby, php, mysql, oracle, software developer, database administrator, database desingner, blog, portfolio" />
+    <meta name="description" content="personal freelancer web developer portfolio and blog website" />
+    <meta name="author" content="Daniel González" />
     <%= stylesheet_link_tag 'screen' %>
     <%= javascript_include_tag :all %>
     <%= auto_discovery_link_tag(:rss, {:controller => 'posts', :action=> 'index', :format => 'rss'}, {:title => 'RSS Feeds'}) %>
@@ -96,14 +99,14 @@
           <div class="grid_4 omega">
 
             <div class="sidemenu">
-              <h3>Sponsors</h3>
+              <h3>My Last Tweets</h3>
               <ul>
-                <li><a href="http://themeforest.net?ref=ealigam">ThemeForest <br /><span>Your Choice for Site Templates, Wordpress, Joomla and CMS Themes</span></a></li>
-                <li><a href="http://www.4templates.com/?aff=ealigam">4templates <br /><span>Low Cost Hi-Quality Templates</span></a></li>
-                <li><a href="http://store.templatemonster.com?aff=ealigam">TemplateMonster <br /><span>Delivering the Best Templates on the Net!</span></a></li>
-                <li><a href="http://tinyurl.com/3cgv2m">Text Link Ads <br /><span>Monetized your website</span></a></li>
-                <li><a href="http://www.fotolia.com/partner/114283">Fotolia <br /><span>Free stock images or from $1</span></a></li>
-                <li><a href="http://www.dreamhost.com/r.cgi?287326">Dreamhost <br /><span>Premium webhosting</span></a></li>
+                <% @my_timeline.each do |tweet| %>
+                  <li>
+                      <%= tweet.text %><br />
+                      <span class="date"><%= tweet.created_at.to_s(:long_ordinal) %></span>
+                  </li>
+                <% end %>
               </ul>
             </div>
 
