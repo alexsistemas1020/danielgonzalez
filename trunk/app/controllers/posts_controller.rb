@@ -21,12 +21,12 @@ class PostsController < ApplicationController
   # GET /posts/tagged_with/tag.rss
   def index
     @comment = Comment.new
-    @posts = Post.all(:order => 'created_at DESC')
+    @posts = Post.all(:order => 'posts.created_at DESC')
     
     respond_to do |format|
       format.html do # index.html.erb
         if params[:tag]
-          @posts = Post.find_tagged_with(params[:tag], :order => "created_at DESC")
+          @posts = Post.find_tagged_with(params[:tag], :order => "posts.created_at DESC")
         end
       end
       format.rss  { render :layout => false } # index.rss.erb
