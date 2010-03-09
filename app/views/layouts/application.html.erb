@@ -100,7 +100,8 @@
 
             <div class="sidemenu">
               <h3>My Last Tweets</h3>
-              <ul>
+              <h5><%= link_to 'http://twitter.com/dangt85', 'http://twitter.com/dangt85' %></h5>
+              <ul id="tweets">
                 <% @my_timeline.each do |tweet| %>
                   <li>
                       <%= tweet.text %><br />
